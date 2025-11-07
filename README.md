@@ -34,10 +34,6 @@ O domínio simula operações da Mottu:
 
     - Admin: CRUD completo + movimentação
   
-  **Benefício de negócio:** 
-    Gestão de ativos e visibilidade de onde cada moto está estacionada, com maior segurança de acesso.
-
-## 🧭 Arquitetura (Camadas)
 
 **📂 src/main/java/br/com/motosecurityx/**
 
