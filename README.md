@@ -103,33 +103,6 @@ O domínio simula operações da Mottu:
 
 - Spring Boot 3.5.x
 
-- Banco H2 em memória (dev)
-
-- Flyway para migrations
-
-## ▶️ Como executar localmente
-
-- Na raiz do repositório:
-
-  # compilar
-    
-    ./mvnw clean package
-
-  # rodar aplicação
-    
-    ./mvnw spring-boot:run
-
-  # Acesso:
-
-    Aplicação: 👉 http://localhost:8081
-
-    Console H2: 👉 http://localhost:8081/h2-console
-
-      JDBC URL: jdbc:h2:mem:motosecurityx
-
-      User: sa
-
-      Sem senha
 
   # Usuários disponíveis (seedados via Flyway):
 
