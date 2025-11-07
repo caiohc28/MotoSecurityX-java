@@ -9,7 +9,7 @@
 
     <!-- alerts -->
     <div th:if="${param.ok}"      style="color: green;">Moto salva com sucesso.</div>
-    <div th:if="${param.deleted}" style="color: green;">Moto excluída com sucesso.</div>
+    <div th:if="${param.deleted}" class="alert alert-success mt-3">Moto excluída com sucesso.</div>
     <div th:if="${param.movida}"  style="color: green;">Moto movida com sucesso.</div>
     <div th:if="${param.err}"     style="color: firebrick;">[[${param.err}]]</div>
 
@@ -41,7 +41,7 @@
                    th:href="@{|/motos/edit/${m.id}|}">Editar</a>
 
                 <form th:if="${#authorization.expression('hasRole(''ADMIN'')')}"
-                      th:action="@{|/motos/${m.id}|}"
+                      th:action="@{|/api/motos/${m.id}|}"
                       method="post" style="display:inline">
                     <input type="hidden" name="_method" value="delete"/>
                     <button type="submit" onclick="return confirm('Confirmar exclusão?')">Excluir</button>

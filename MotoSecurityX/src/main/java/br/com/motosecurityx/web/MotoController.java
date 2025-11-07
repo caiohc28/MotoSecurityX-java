@@ -59,6 +59,6 @@ public class MotoController {
     @PreAuthorize("hasRole('ADMIN')")
     public String delete(@PathVariable Long id) {
         service.excluir(id);
-        return "redirect:/motos?deleted";
+        return "redirect:/motos?deleted=true";
     }
 }

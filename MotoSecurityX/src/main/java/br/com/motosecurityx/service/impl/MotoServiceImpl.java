@@ -46,7 +46,14 @@ public class MotoServiceImpl implements MotoService {
     }
 
     @Override
-    public void excluir(Long id) { repo.deleteById(id); }
+    public void excluir(Long id) {
+        Moto moto = repo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Moto não encontrada"));
+
+        movRepo.deleteAllByMotoId(id); // <-- você cria esse método no MovimentacaoRepository
+        repo.deleteById(id);
+    }
+
 
     @Override
     public void moverMoto(Long motoId, Long novoPatioId) {
