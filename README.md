@@ -143,33 +143,6 @@ O domínio simula operações da Mottu:
   Histórico de transferências de motos
 
   Vincula pátio origem, destino e data/hora
-
-## 🗃️ Migrations Flyway
-
-  Scripts em /resources/db/migration:
-
-    V1__create_tables.sql
-
-    V2__seed_data.sql
-
-    V3__security_seed_roles.sql
-
-    V4__security_seed_users.sql
-
-    V5__alter_moto_add_disponivel.sql
-
-    V6__create_table_movimentacao.sql
-
-    V7__alter_patio_add_capacidade.sql
-
-    V8__bcrypt_usuarios.sql
-
-    V9__create_funcionario_and_alocacao.sql
-
-    V10__fix_password_prefix.sql
-
-    V11__normalize_passwords.sql
-
 ## 🧼 Clean Code
 
 - Controllers finos, apenas coordenam request/response
