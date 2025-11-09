@@ -87,5 +87,3 @@ Desenvolvida em **Spring Boot 3**, com persistência via **JPA/Hibernate**, **Fl
 
 ## 🎬 Demonstração
 🎥 [Assista ao vídeo da entrega no YouTube](https://youtu.be/zCuMNBzGEHs)
-
----
