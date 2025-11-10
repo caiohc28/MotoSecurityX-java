@@ -69,6 +69,92 @@ Desenvolvida em **Spring Boot 3**, com persistência via **JPA/Hibernate**, **Fl
 
 ---
 
+## 🧭 Arquitetura (Camadas)
+
+**📂 src/main/java/br/com/motosecurityx/**
+
+  config/ → Configuração de segurança (SecurityConfig), reset e normalização de senhas (DevPasswordReset, DevPasswordNormalizer)
+
+  domain/ → Entidades de domínio (Moto, Patio, Movimentacao, Funcionario, Alocacao)
+
+  repository/ → Interfaces JPA (MotoRepository, PatioRepository, MovimentacaoRepository, etc.)
+
+  service/ → Regras de negócio (MotoServiceImpl, PatioServiceImpl, etc.)
+
+  web/ → Controladores MVC (MotoController, PatioController, AlocacaoController, PageController)
+
+**📂 src/main/resources/**
+
+  db/migration/ → Scripts Flyway (V1__create_tables.sql até V11__normalize_passwords.sql)
+
+  templates/ → iews Thymeleaf (login.html, home.html, motos/, patios/, alocacoes/, fragments/)
+
+  static/ → CSS (css/app.css)
+
+## 🧩 Modelagem de Domínio (DDD)
+
+- Entidades principais:
+
+    Moto: placa, modelo, disponível, pátio atual
+
+    Patio: nome, capacidade
+
+    Movimentção: moto, pátio origem, pátio destino, data/hora
+
+    Usuário → username, senha (bcrypt), role (ADMIN ou OPERADOR)
+
+    Funcionario / Alocacao → suporte a controle de funcionários vinculados a pátios
+
+- Regras implementadas:
+
+    MotoService.moverMoto() → valida capacidade do pátio destino, atualiza vínculo e gera movimentação
+
+    Usuários ADMIN têm permissões CRUD, OPERADOR apenas leitura
+
+✅ Status atual: 
+
+  Login/Logout com Spring Security (usuário seedado no banco)
+
+  Perfis de acesso: ADMIN e OPERADOR
+
+  CRUD completo de Motos e Pátios com validações
+
+  Controle de movimentação de motos entre pátios
+
+  Views Thymeleaf organizadas com fragments (_header.html, _footer.html)
+
+  Templates de erro customizados (404.html, error.html)
+
+---
+
+# 🧼 Clean Code
+
+- Controllers finos, apenas coordenam request/response
+
+- Services concentram regras de negócio
+
+- Reutilização via interfaces de repositório JPA
+
+- Validações centralizadas com Bean Validation
+
+- Fragments Thymeleaf para reaproveitar layout
+
+---
+
+## 📋 Testes
+
+- Testes manuais: via navegação (Thymeleaf)
+
+- Autenticação testada com ADMIN e OPERADOR
+
+- Regras de negócio validadas:
+
+    Não mover moto se pátio cheio
+
+    Moto exige placa válida
+
+---
+
 ## 🧠 Regras de Negócio
 - Moto não pode ser movida para pátio cheio  
 - Cada moto possui uma placa única  
